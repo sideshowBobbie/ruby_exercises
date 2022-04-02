@@ -1,0 +1,4 @@
+#"bobbie@gmail.com"
+#check for @ symbol and .com, .net, etc
+
+p "bobbie@gmail.com".include?("@")
