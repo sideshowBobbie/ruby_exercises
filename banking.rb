@@ -6,19 +6,35 @@ puts "_______________________"
 
 accounts = []
 email = ""
+valid_email = false
+valid_email_suffix = [".com", ".net", ".org"]
 
 5.times do #number of accounts
+  #enter first name 
   print "enter account holders first name:" #print in line
   first_name = gets.chomp
 
+  #enter last name
   print "enter account holder's last name:"
   last_name = gets.chomp
 
-  print "enter account holder's email:"
-  email = gets.chomp
-  if email.include?("@") && email.index()
+  ##entering and validating email
+  valid_email = false
+  print "enter account holder's email: "
+    while valid_email == false
+      email = gets.chomp
+      #email validate
+      if email.include?("@") && valid_email_suffix.include?(email[-4..-1])
+        valid_email = true
+        puts "valid"
+      else
+        valid_email = false
+        print "Invalid entry. Try again: "
+      end
+    end
 
   account_num = Array.new(10){rand(0..9)}.join("") #creating account number by choosing 10 random numbers (starting from 0) and combining them into a single string
+
   puts Array.new(40){"_"}.join
   
   accounts << {first_name: first_name, 
@@ -26,7 +42,6 @@ email = ""
              email: email,
              account_num: account_num
             }
-
 end
 
  puts "Would you like to see all accounts? yes or no"
