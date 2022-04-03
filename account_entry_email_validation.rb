@@ -35,7 +35,7 @@ valid_email_suffix = [".com", ".net", ".org"]
 
   account_num = Array.new(10){rand(0..9)}.join("") #creating account number by choosing 10 random numbers (starting from 0) and combining them into a single string
 
-  puts Array.new(40){"_"}.join
+  puts Array.new(40){"*"}.join
   
   accounts << {first_name: first_name, 
              last_name: last_name,
@@ -56,7 +56,7 @@ end
     puts Array.new(40){"_"}.join
   end
  else
-  puts"Ok, that's fine. Goodbye"
+  puts"Ok."
  end
 
 #array with acceptable [-4..-1] range email entries
